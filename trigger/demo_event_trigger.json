@@ -1,0 +1,25 @@
+{
+	"name": "demo_event_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_Event_based_trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/adflearning/blobs/",
+			"ignoreEmptyBlobs": false,
+			"scope": "/subscriptions/1c175f81-b129-456d-b2bf-d6b7bc7a6bec/resourceGroups/Azure_ADF_01112026/providers/Microsoft.Storage/storageAccounts/vids011120261115",
+			"events": [
+				"Microsoft.Storage.BlobCreated",
+				"Microsoft.Storage.BlobDeleted"
+			]
+		}
+	}
+}

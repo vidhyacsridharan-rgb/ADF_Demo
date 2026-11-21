@@ -1,0 +1,50 @@
+{
+	"name": "DS_multi_parquet_source_with_recurssive",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "source/source_parquet",
+				"fileSystem": "adflearning"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "c1",
+				"type": "INT_64"
+			},
+			{
+				"name": "Bank",
+				"type": "UTF8"
+			},
+			{
+				"name": "City",
+				"type": "UTF8"
+			},
+			{
+				"name": "State",
+				"type": "UTF8"
+			},
+			{
+				"name": "Date",
+				"type": "DATE"
+			},
+			{
+				"name": "Acquired by",
+				"type": "UTF8"
+			},
+			{
+				"name": "Assets ($mil.)",
+				"type": "DOUBLE"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

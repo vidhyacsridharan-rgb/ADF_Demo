@@ -1,0 +1,19 @@
+{
+	"name": "Binary2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "destination/Receive_files_VidhyaTesting",
+				"fileSystem": "adflearning"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

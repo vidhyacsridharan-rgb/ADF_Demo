@@ -1,0 +1,16 @@
+{
+	"name": "DS_REST_USERS07nov26",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_REST_API_07Nov26",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"typeProperties": {
+			"relativeUrl": "/users"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

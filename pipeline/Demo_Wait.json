@@ -1,0 +1,38 @@
+{
+	"name": "Demo_Wait",
+	"properties": {
+		"activities": [
+			{
+				"name": "5 sec",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
+			},
+			{
+				"name": "10sec",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "5 sec",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 10
+				}
+			}
+		],
+		"folder": {
+			"name": "Demo"
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-11-01T06:11:59Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

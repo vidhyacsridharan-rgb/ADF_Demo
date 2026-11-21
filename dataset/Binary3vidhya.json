@@ -1,0 +1,20 @@
+{
+	"name": "Binary3vidhya",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "DS_Destination_TXT",
+				"folderPath": "destination",
+				"fileSystem": "adflearning"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

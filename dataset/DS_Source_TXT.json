@@ -1,0 +1,19 @@
+{
+	"name": "DS_Source_TXT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "source",
+				"fileSystem": "adflearning"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

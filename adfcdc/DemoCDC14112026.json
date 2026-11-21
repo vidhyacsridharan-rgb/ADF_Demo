@@ -1,0 +1,336 @@
+{
+	"name": "DemoCDC14112026",
+	"properties": {
+		"folder": {
+			"name": "Demo_CDC"
+		},
+		"SourceConnectionsInfo": [
+			{
+				"SourceEntities": [
+					{
+						"name": "dbo.CustomerOrders",
+						"properties": {
+							"schema": [
+								{
+									"name": "OrderID",
+									"dataType": "integer"
+								},
+								{
+									"name": "CustomerName",
+									"dataType": "string"
+								},
+								{
+									"name": "ProductCode",
+									"dataType": "string"
+								},
+								{
+									"name": "Quantity",
+									"dataType": "integer"
+								},
+								{
+									"name": "TotalAmount",
+									"dataType": "decimal(10,2)"
+								},
+								{
+									"name": "OrderDate",
+									"dataType": "timestamp"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "CustomerOrders"
+								},
+								{
+									"name": "enableCdc",
+									"value": true
+								},
+								{
+									"name": "waterMarkColumn",
+									"value": "OrderDate"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "LS_AzureSqlDatabase07112026",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true,
+					"commonDslConnectorProperties": [
+						{
+							"name": "allowSchemaDrift",
+							"value": true
+						},
+						{
+							"name": "inferDriftedColumnTypes",
+							"value": true
+						},
+						{
+							"name": "format",
+							"value": "table"
+						},
+						{
+							"name": "store",
+							"value": "sqlserver"
+						},
+						{
+							"name": "skipInitialLoad",
+							"value": true
+						}
+					]
+				}
+			}
+		],
+		"TargetConnectionsInfo": [
+			{
+				"TargetEntities": [
+					{
+						"name": "dbo.CustomerOrders_Destination",
+						"properties": {
+							"schema": [
+								{
+									"name": "OrderID",
+									"dataType": "integer"
+								},
+								{
+									"name": "CustomerName",
+									"dataType": "string"
+								},
+								{
+									"name": "ProductCode",
+									"dataType": "string"
+								},
+								{
+									"name": "Quantity",
+									"dataType": "integer"
+								},
+								{
+									"name": "TotalAmount",
+									"dataType": "decimal(10,2)"
+								},
+								{
+									"name": "OrderDate",
+									"dataType": "timestamp"
+								}
+							],
+							"dslConnectorProperties": [
+								{
+									"name": "schemaName",
+									"value": "dbo"
+								},
+								{
+									"name": "tableName",
+									"value": "CustomerOrders_Destination"
+								},
+								{
+									"name": "allowSchemaDrift",
+									"value": false
+								},
+								{
+									"name": "inferDriftedColumnTypes",
+									"value": false
+								},
+								{
+									"name": "keys",
+									"value": [
+										"OrderID"
+									]
+								},
+								{
+									"name": "deletable",
+									"value": true
+								},
+								{
+									"name": "updateable",
+									"value": true
+								},
+								{
+									"name": "upsertable",
+									"value": true
+								},
+								{
+									"name": "defaultToUpsert",
+									"value": true
+								}
+							]
+						}
+					}
+				],
+				"Connection": {
+					"linkedService": {
+						"referenceName": "LS_AzureSqlDatabase07112026",
+						"type": "LinkedServiceReference"
+					},
+					"linkedServiceType": "AzureSqlDatabase",
+					"type": "linkedservicetype",
+					"isInlineDataset": true,
+					"commonDslConnectorProperties": [
+						{
+							"name": "allowSchemaDrift",
+							"value": true
+						},
+						{
+							"name": "inferDriftedColumnTypes",
+							"value": true
+						},
+						{
+							"name": "format",
+							"value": "table"
+						},
+						{
+							"name": "store",
+							"value": "sqlserver"
+						},
+						{
+							"name": "deletable",
+							"value": false
+						},
+						{
+							"name": "insertable",
+							"value": true
+						},
+						{
+							"name": "updateable",
+							"value": false
+						},
+						{
+							"name": "upsertable",
+							"value": false
+						},
+						{
+							"name": "skipDuplicateMapInputs",
+							"value": true
+						},
+						{
+							"name": "skipDuplicateMapOutputs",
+							"value": true
+						}
+					]
+				},
+				"DataMapperMappings": [
+					{
+						"targetEntityName": "dbo.CustomerOrders_Destination",
+						"sourceEntityName": "dbo.CustomerOrders",
+						"sourceConnectionReference": {
+							"connectionName": "LS_AzureSqlDatabase07112026",
+							"type": "linkedservicetype"
+						},
+						"attributeMappingInfo": {
+							"attributeMappings": [
+								{
+									"name": "CustomerName",
+									"type": "Derived",
+									"functionName": "upper",
+									"expression": "upper(CustomerName)",
+									"attributeReferences": [
+										{
+											"name": "CustomerName",
+											"entity": "dbo.CustomerOrders",
+											"entityConnectionReference": {
+												"connectionName": "LS_AzureSqlDatabase07112026",
+												"type": "linkedservicetype"
+											}
+										}
+									]
+								},
+								{
+									"name": "OrderDate",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "OrderDate",
+										"entity": "dbo.CustomerOrders",
+										"entityConnectionReference": {
+											"connectionName": "LS_AzureSqlDatabase07112026",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "OrderID",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "OrderID",
+										"entity": "dbo.CustomerOrders",
+										"entityConnectionReference": {
+											"connectionName": "LS_AzureSqlDatabase07112026",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "ProductCode",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "ProductCode",
+										"entity": "dbo.CustomerOrders",
+										"entityConnectionReference": {
+											"connectionName": "LS_AzureSqlDatabase07112026",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "Quantity",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "Quantity",
+										"entity": "dbo.CustomerOrders",
+										"entityConnectionReference": {
+											"connectionName": "LS_AzureSqlDatabase07112026",
+											"type": "linkedservicetype"
+										}
+									}
+								},
+								{
+									"name": "TotalAmount",
+									"type": "Direct",
+									"functionName": "",
+									"attributeReference": {
+										"name": "TotalAmount",
+										"entity": "dbo.CustomerOrders",
+										"entityConnectionReference": {
+											"connectionName": "LS_AzureSqlDatabase07112026",
+											"type": "linkedservicetype"
+										}
+									}
+								}
+							]
+						}
+					}
+				],
+				"Relationships": []
+			}
+		],
+		"Policy": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1
+			},
+			"mode": "Microbatch"
+		},
+		"status": "PipelineRunCreated",
+		"allowVNetOverride": false,
+		"id": "7462eeda7d124441867df0d8d7b2da72"
+	}
+}

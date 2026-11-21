@@ -1,0 +1,22 @@
+{
+	"name": "PL_Event_based_trigger",
+	"properties": {
+		"activities": [
+			{
+				"name": "Wait",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 15
+				}
+			}
+		],
+		"folder": {
+			"name": "Demo"
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-11-11T11:04:42Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

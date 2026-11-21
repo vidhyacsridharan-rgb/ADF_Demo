@@ -1,0 +1,19 @@
+{
+	"name": "DS_multi_formated_sink_files",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "destination/sink_06112026",
+				"fileSystem": "adflearning"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
